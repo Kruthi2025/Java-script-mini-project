@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Basic Math Operations</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Basic Math Operations</h2>
+
+<label for="number1">Enter first number:</label>
+<input type="number" id="number1" placeholder="Enter first number">
+<br><br>
+<label for="operator">Select operator:</label>
+<select id="operator">
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<br><br>
+<label for="number2">Enter second number:</label>
+<input type="number" id="number2" placeholder="Enter second number">
+<br><br>
+<button onclick="calculate()">Calculate</button>
+
+<div id="result"></div>
+
+<script>
+function calculate() {
+    var number1 = parseFloat(document.getElementById("number1").value);
+    var operator = document.getElementById("operator").value;
+    var number2 = parseFloat(document.getElementById("number2").value);
+    var result;
+
+    switch(operator) {
+        case '+':
+            result = number1 + number2;
+            break;
+        case '-':
+            result = number1 - number2;
+            break;
+        case '*':
+            result = number1 * number2;
+            break;
+        case '/':
+            if (number2 !== 0) {
+                result = number1 / number2;
+            } else {
+                result = "Cannot divide by zero";
+            }
+            break;
+        default:
+            result = "Invalid operator";
+    }
+
+    document.getElementById("result").innerHTML = "Result: " + result;
+}
+</script>
+
+</body>
+</html>

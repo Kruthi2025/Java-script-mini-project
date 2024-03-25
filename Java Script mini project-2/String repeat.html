@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>String Repeater</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>String Repeater</h2>
+
+<label for="text">Enter a string:</label>
+<input type="text" id="text" placeholder="Enter a string">
+<br><br>
+<label for="repeat">Enter the number of times to repeat:</label>
+<input type="number" id="repeat" placeholder="Enter a number">
+<br><br>
+<button onclick="repeatString()">Repeat String</button>
+
+<div id="result"></div>
+
+<script>
+function repeatString() {
+    var text = document.getElementById("text").value;
+    var repeat = parseInt(document.getElementById("repeat").value);
+
+    var repeatedString = text.repeat(repeat);
+
+    document.getElementById("result").innerHTML = "Repeated string: " + repeatedString;
+}
+</script>
+
+</body>
+</html>

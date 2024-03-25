@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Average Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Average Calculator</h2>
+
+<label for="numbers">Enter numbers separated by commas:</label>
+<input type="text" id="numbers" placeholder="Enter numbers">
+<br><br>
+<button onclick="calculateAverage()">Calculate Average</button>
+
+<div id="result"></div>
+
+<script>
+function calculateAverage() {
+    var input = document.getElementById("numbers").value;
+    var numbersArray = input.split(',').map(Number);
+
+    var sum = 0;
+    for (var i = 0; i < numbersArray.length; i++) {
+        sum += numbersArray[i];
+    }
+
+    var average = sum / numbersArray.length;
+
+    document.getElementById("result").innerHTML = "Average: " + average.toFixed(2); // Displaying average rounded to 2 decimal places
+}
+</script>
+
+</body>
+</html>

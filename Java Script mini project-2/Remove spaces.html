@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Remove Spaces</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Remove Spaces</h2>
+
+<label for="inputString">Enter a string:</label>
+<input type="text" id="inputString" placeholder="Enter a string">
+<br><br>
+<button onclick="removeSpaces()">Remove Spaces</button>
+
+<div id="result"></div>
+
+<script>
+function removeSpaces() {
+    var inputString = document.getElementById("inputString").value;
+    var stringWithoutSpaces = inputString.replace(/\s/g, ''); // Using regular expression to replace spaces with empty string
+
+    document.getElementById("result").innerHTML = "String without spaces: " + stringWithoutSpaces;
+}
+</script>
+
+</body>
+</html>

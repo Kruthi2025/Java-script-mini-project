@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cat and Dog Age Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f0f0f0;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+    }
+    
+    #container {
+        background-color: #fff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        text-align: center;
+        max-width: 400px;
+        width: 100%;
+    }
+
+    input[type="number"] {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 20px;
+        box-sizing: border-box;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        font-size: 16px;
+    }
+
+    button {
+        width: 100%;
+        padding: 12px;
+        border: none;
+        border-radius: 4px;
+        background-color: #4caf50;
+        color: #fff;
+        cursor: pointer;
+        font-size: 16px;
+    }
+
+    button:hover {
+        background-color: #45a049;
+    }
+
+    #result {
+        margin-top: 20px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+
+<div id="container">
+    <h2>Cat and Dog Age Calculator</h2>
+    <label for="ageHumanCat">Enter Cat's age in human years:</label>
+    <input type="number" id="ageHumanCat" placeholder="Enter Cat's age" min="0">
+    <button onclick="calculateCatYears()">Calculate Cat Age</button>
+    <div id="resultCat"></div><br><br>
+
+    <label for="ageHumanDog">Enter Dog's age in human years:</label>
+    <input type="number" id="ageHumanDog" placeholder="Enter Dog's age" min="0">
+    <button onclick="calculateDogYears()">Calculate Dog Age</button>
+    <div id="resultDog"></div>
+</div>
+
+<script>
+    function calculateCatYears() {
+        const ageHumanCat = parseInt(document.getElementById("ageHumanCat").value);
+
+        if (!isNaN(ageHumanCat) && ageHumanCat >= 0) {
+            const catYears = calculateCatAge(ageHumanCat);
+            displayResult("Cat's age in cat years: " + catYears, "resultCat");
+        } else {
+            displayResult("Please enter a valid non-negative number.", "resultCat");
+        }
+    }
+
+    function calculateCatAge(ageHumanCat) {
+        if (ageHumanCat === 0) {
+            return 0;
+        } else if (ageHumanCat === 1) {
+            return 15;
+        } else if (ageHumanCat === 2) {
+            return 24;
+        } else {
+            return 24 + (ageHumanCat - 2) * 4;
+        }
+    }
+
+    function calculateDogYears() {
+        const ageHumanDog = parseInt(document.getElementById("ageHumanDog").value);
+
+        if (!isNaN(ageHumanDog) && ageHumanDog >= 0) {
+            const dogYears = calculateDogAge(ageHumanDog);
+            displayResult("Dog's age in dog years: " + dogYears, "resultDog");
+        } else {
+            displayResult("Please enter a valid non-negative number.", "resultDog");
+        }
+    }
+
+    function calculateDogAge(ageHumanDog) {
+        if (ageHumanDog === 0) {
+            return 0;
+        } else if (ageHumanDog === 1) {
+            return 15;
+        } else if (ageHumanDog === 2) {
+            return 24;
+        } else {
+            return 24 + (ageHumanDog - 2) * 4.5;
+        }
+    }
+
+    function displayResult(message, elementId) {
+        const resultElement = document.getElementById(elementId);
+        resultElement.textContent = message;
+    }
+</script>
+
+</body>
+</html>

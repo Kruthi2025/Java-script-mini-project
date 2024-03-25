@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Total Points Calculator</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Total Points Calculator</h2>
+
+<label for="scores">Enter scores separated by commas:</label>
+<input type="text" id="scores" placeholder="Enter scores">
+<br><br>
+<button onclick="calculateTotal()">Calculate Total</button>
+
+<div id="result"></div>
+
+<script>
+function calculateTotal() {
+    var input = document.getElementById("scores").value;
+    var scoresArray = input.split(',').map(Number);
+
+    var totalPoints = 0;
+    for (var i = 0; i < scoresArray.length; i++) {
+        totalPoints += scoresArray[i];
+    }
+
+    document.getElementById("result").innerHTML = "Total points: " + totalPoints;
+}
+</script>
+
+</body>
+</html>

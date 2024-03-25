@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Divisible Checker</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Divisible Checker</h2>
+
+<label for="number">Enter a number:</label>
+<input type="number" id="number" placeholder="Enter a number">
+<br><br>
+<label for="x">Enter the first divisor:</label>
+<input type="number" id="x" placeholder="Enter the first divisor">
+<br><br>
+<label for="y">Enter the second divisor:</label>
+<input type="number" id="y" placeholder="Enter the second divisor">
+<br><br>
+<button onclick="checkDivisibility()">Check Divisibility</button>
+
+<div id="result"></div>
+
+<script>
+function checkDivisibility() {
+    var number = parseInt(document.getElementById("number").value);
+    var x = parseInt(document.getElementById("x").value);
+    var y = parseInt(document.getElementById("y").value);
+
+    var isDivisibleByX = number % x === 0;
+    var isDivisibleByY = number % y === 0;
+
+    if (isDivisibleByX && isDivisibleByY) {
+        document.getElementById("result").innerHTML = number + " is divisible by both " + x + " and " + y + ".";
+    } else if (isDivisibleByX) {
+        document.getElementById("result").innerHTML = number + " is divisible by " + x + " but not by " + y + ".";
+    } else if (isDivisibleByY) {
+        document.getElementById("result").innerHTML = number + " is divisible by " + y + " but not by " + x + ".";
+    } else {
+        document.getElementById("result").innerHTML = number + " is not divisible by either " + x + " or " + y + ".";
+    }
+}
+</script>
+
+</body>
+</html>

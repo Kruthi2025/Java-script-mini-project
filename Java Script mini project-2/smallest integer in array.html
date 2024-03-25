@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smallest Integer Finder</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Smallest Integer Finder</h2>
+
+<label for="numbers">Enter numbers separated by commas:</label>
+<input type="text" id="numbers" placeholder="Enter numbers">
+<br><br>
+<button onclick="findSmallest()">Find Smallest Integer</button>
+
+<div id="result"></div>
+
+<script>
+function findSmallest() {
+    var input = document.getElementById("numbers").value;
+    var numbersArray = input.split(',').map(Number);
+
+    var smallest = numbersArray[0];
+    for (var i = 1; i < numbersArray.length; i++) {
+        if (numbersArray[i] < smallest) {
+            smallest = numbersArray[i];
+        }
+    }
+
+    document.getElementById("result").innerHTML = "Smallest integer: " + smallest;
+}
+</script>
+
+</body>
+</html>

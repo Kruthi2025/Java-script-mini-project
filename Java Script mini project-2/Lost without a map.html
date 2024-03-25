@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lost Without a Map</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+    }
+    #result {
+        margin-top: 20px;
+    }
+</style>
+</head>
+<body>
+
+<h2>Lost Without a Map</h2>
+
+<label for="numbers">Enter numbers separated by commas:</label>
+<input type="text" id="numbers" placeholder="Enter numbers">
+<br><br>
+<button onclick="doubleNumbers()">Double Numbers</button>
+
+<div id="result"></div>
+
+<script>
+function doubleNumbers() {
+    var input = document.getElementById("numbers").value;
+    var numbersArray = input.split(',').map(Number);
+
+    var doubledArray = numbersArray.map(function(num) {
+        return num * 2;
+    });
+
+    document.getElementById("result").innerHTML = "Doubled numbers: " + doubledArray.join(', ');
+}
+</script>
+
+</body>
+</html>
